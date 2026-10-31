@@ -93,8 +93,8 @@ a{color:inherit;text-decoration:none}
 /* CART DRAWER */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90}
 .cart-overlay.open{opacity:1;pointer-events:auto}
-.cart-drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(400px,92vw);background:#fff;z-index:100;display:flex;flex-direction:column;transform:translateX(110%);transition:transform .3s ease;box-shadow:-8px 0 30px rgba(0,0,0,.12)}
-[dir="ltr"] .cart-drawer{transform:translateX(-110%)}
+.cart-drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(400px,92vw);background:#fff;z-index:100;display:flex;flex-direction:column;transform:translateX(-110%);transition:transform .3s ease;box-shadow:8px 0 30px rgba(0,0,0,.12)}
+[dir="ltr"] .cart-drawer{transform:translateX(110%);box-shadow:-8px 0 30px rgba(0,0,0,.12)}
 .cart-drawer.open{transform:translateX(0)!important}
 .cart-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee}
 .cart-head h3{font-size:19px;color:var(--green)}
