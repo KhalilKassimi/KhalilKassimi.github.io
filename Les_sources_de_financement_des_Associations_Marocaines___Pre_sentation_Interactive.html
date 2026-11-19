@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les sources de financement des Associations Marocaines — Présentation Interactive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    :root {
+      --bg-primary: #061311;
+      --bg-secondary: #0b1f1b;
+      --bg-card: rgba(13, 34, 29, 0.74);
+      --bg-card-hover: rgba(18, 46, 39, 0.88);
+      --border-subtle: rgba(212, 163, 89, 0.18);
+      --border-strong: rgba(212, 163, 89, 0.45);
+      --text-primary: #f7f3ea;
+      --text-secondary: #b7c9c2;
+      --text-muted: #7f9a90;
+      --accent-gold: #e2b464;
+      --accent-gold-soft: rgba(226, 180, 100, 0.14);
+      --accent-emerald: #2dd4bf;
+      --accent-emerald-soft: rgba(45, 212, 191, 0.13);
+      --accent-terra: #e06d4f;
+      --accent-terra-soft: rgba(224, 109, 79, 0.14);
+      --shadow-card: 0 20px 50px -15px rgba(0, 0, 0, 0.55);
+      --pattern-opacity: 0.055;
+      --dock-bg: rgba(7, 22, 19, 0.82);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f7f3eb;
+      --bg-secondary: #efe8da;
+      --bg-card: rgba(255, 253, 248, 0.88);
+      --bg-card-hover: rgba(255, 255, 255, 0.98);
+      --border-subtle: rgba(140, 98, 41, 0.18);
+      --border-strong: rgba(180, 122, 42, 0.45);
+      --text-primary: #132620;
+      --text-secondary: #3f5950;
+      --text-muted: #697f77;
+      --accent-gold: #b57b24;
+      --accent-gold-soft: rgba(181, 123, 36, 0.12);
+      --accent-emerald: #0f766e;
+      --accent-emerald-soft: rgba(15, 118, 110, 0.11);
+      --accent-terra: #c24b2c;
+      --accent-terra-soft: rgba(194, 75, 44, 0.12);
+      --shadow-card: 0 18px 42px -18px rgba(19, 38, 32, 0.16);
+      --pattern-opacity: 0.045;
+      --dock-bg: rgba(255, 252, 245, 0.88);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: background-color 0.5s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Ambient Moroccan Zellige geometric background */
+    .zellige-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: var(--pattern-opacity);
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23e2b464' stroke-width='0.9'%3E%3Cpath d='M40 0L52 28L80 40L52 52L40 80L28 52L0 40L28 28Z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Cpath d='M0 0L20 20M80 0L60 20M80 80L60 60M0 80L20 60'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 80px 80px;
+      animation: driftPattern 90s linear infinite;
+    }
+
+    @keyframes driftPattern {
+      0% { background-position: 0 0; }
+      100% { background-position: 160px 160px; }
+    }
+
+    /* Animated Ambient Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 9999px;
+      filter: blur(95px);
+      pointer-events: none;
+      z-index: 0;
+      transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 1s ease;
+    }
+    .orb-1 {
+      width: 44vw;
+      height: 44vw;
+      max-width: 580px;
+      max-height: 580px;
+      top: -12%;
+      right: -8%;
+      background: radial-gradient(circle, rgba(226, 180, 100, 0.22) 0%, transparent 70%);
+    }
+    .orb-2 {
+      width: 48vw;
+      height: 48vw;
+      max-width: 640px;
+      max-height: 640px;
+      bottom: -18%;
+      left: -10%;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.18) 0%, transparent 70%);
+    }
+    .orb-3 {
+      width: 30vw;
+      height: 30vw;
+      max-width: 420px;
+      max-height: 420px;
+      top: 40%;
+      left: 42%;
+      background: radial-gradient(circle, rgba(224, 109, 79, 0.11) 0%, transparent 70%);
+    }
+
+    [data-theme="light"] .orb-1 { background: radial-gradient(circle, rgba(226, 180, 100, 0.25) 0%, transparent 70%); }
+    [data-theme="light"] .orb-2 { background: radial-gradient(circle, rgba(15, 118, 110, 0.14) 0%, transparent 70%); }
+    [data-theme="light"] .orb-3 { background: radial-gradient(circle, rgba(194, 75, 44, 0.12) 0%, transparent 70%); }
+
+    /* Deck Stage */
+    #deck-stage {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      perspective: 1400px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 4.25rem 1.25rem 5.75rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate3d(60px, 0, -40px) scale(0.97);
+      transition:
+        opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.65s;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-strong) transparent;
+    }
+
+    @media (min-width: 768px) {
+      .slide {
+        padding: 4.5rem 3rem 6rem;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .slide {
+        padding: 4.75rem 5rem 6.25rem;
+      }
+    }
+
+    .slide.is-prev {
+      transform: translate3d(-60px, 0, -40px) scale(0.97);
+    }
+
+    .slide.is-next {
+      transform: translate3d(60px, 0, -40px) scale(0.97);
+    }
+
+    .slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: 1160px;
+      margin: auto;
+    }
+
+    /* Staggered reveal animations inside active slide */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px) scale(0.985);
+      filter: blur(4px);
+      transition:
+        opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.65s ease;
+    }
+
+    .slide.is-active .reveal {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .delay-1 { transition-delay: 80ms; }
+    .delay-2 { transition-delay: 160ms; }
+    .delay-3 { transition-delay: 240ms; }
+    .delay-4 { transition-delay: 320ms; }
+    .delay-5 { transition-delay: 400ms; }
+    .delay-6 { transition-delay: 480ms; }
+    .delay-7 { transition-delay: 560ms; }
+
+    /* Glassmorphic Premium Cards */
+    .glass-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1.25rem;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(226, 180, 100, 0.11), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-strong);
+      background: var(--bg-card-hover);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Gold shimmer text */
+    .text-gold-gradient {
+      background: linear-gradient(125deg, #f3d28c 0%, #e2b464 45%, #d68d4b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    [data-theme="light"] .text-gold-gradient {
+      background: linear-gradient(125deg, #9d6312 0%, #c48426 50%, #b84b2c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Top Progress Bar */
+    .progress-track {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(226, 180, 100, 0.12);
+      z-index: 50;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold), var(--accent-terra));
+      box-shadow: 0 0 14px rgba(226, 180, 100, 0.6);
+      transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Floating Header */
+    .top-bar {
+      position: fixed;
+      top: 0.75rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    @media (min-width: 768px) {
+      .top-bar {
+        left: 2rem;
+        right: 2rem;
+      }
+    }
+
+    .top-pill {
+      pointer-events: auto;
+      background: var(--dock-bg);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 9999px;
+      padding: 0.4rem 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Floating Bottom Control Dock */
+    .bottom-dock {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 45;
+      background: var(--dock-bg);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 9999px;
+      padding: 0.4rem 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+      max-width: calc(100vw - 1.5rem);
+    }
+
+    .dock-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.35rem;
+      min-width: 2.35rem;
+      padding: 0 0.65rem;
+      border-radius: 9999px;
+      color: var(--text-primary);
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      font-size: 0.8rem;
+      font-weight: 500;
+      gap: 0.35rem;
+    }
+
+    .dock-btn:hover:not(:disabled) {
+      background: var(--accent-gold-soft);
+      border-color: var(--border-strong);
+      color: var(--accent-gold);
+    }
+
+    .dock-btn:disabled {
+      opacity: 0.32;
+      cursor: not-allowed;
+    }
+
+    .dock-btn.is-active {
+      background: var(--accent-gold);
+      color: #091714;
+      font-weight: 600;
+    }
+
+    /* Section Pill */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent-gold-soft);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Timeline interactive state */
+    .timeline-node {
+      cursor: pointer;
+    }
+    .timeline-node.is-selected {
+      border-color: var(--accent-gold) !important;
+      box-shadow: 0 0 0 1px var(--accent-gold), 0 18px 40px -15px rgba(226, 180, 100, 0.28);
+      transform: translateY(-5px);
+    }
+
+    /* Filter Pills */
+    .filter-pill {
+      padding: 0.42rem 0.95rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-pill:hover {
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .filter-pill.is-active {
+      background: var(--accent-gold);
+      color: #081512;
+      border-color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    /* Comparison Table */
+    .comp-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 0.55rem;
+    }
+    .comp-table th {
+      text-align: left;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .comp-table tbody tr {
+      background: var(--bg-card);
+      transition: transform 0.25s ease, background-color 0.25s ease;
+    }
+    .comp-table tbody tr:hover {
+      background: var(--bg-card-hover);
+      transform: scale(1.01);
+    }
+    .comp-table td {
+      padding: 1rem 1.1rem;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+    .comp-table td:first-child {
+      border-left: 1px solid var(--border-subtle);
+      border-top-left-radius: 0.9rem;
+      border-bottom-left-radius: 0.9rem;
+    }
+    .comp-table td:last-child {
+      border-right: 1px solid var(--border-subtle);
+      border-top-right-radius: 0.9rem;
+      border-bottom-right-radius: 0.9rem;
+    }
+
+    /* Overview Modal */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(5, 14, 12, 0.88);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.32s ease, visibility 0.32s ease;
+      overflow-y: auto;
+      padding: 2rem 1.25rem;
+    }
+    [data-theme="light"] .overview-modal {
+      background: rgba(242, 236, 224, 0.92);
+    }
+    .overview-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Subtle pulse ring */
+    @keyframes softPulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
+      background: var(--accent-emerald);
+      animation: softPulse 2.4s ease-in-out infinite;
+    }
+
+    /* Custom Toast */
+    .toast-banner {
+      position: fixed;
+      top: 4.2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(-12px);
+      z-index: 70;
+      background: var(--dock-bg);
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      padding: 0.55rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(14px);
+    }
+    .toast-banner.is-visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-track" aria-hidden="true">
+    <div id="progress-fill" class="progress-fill"></div>
+  </div>
+
+  <!-- Background Geometric Lattice & Ambient Orbs -->
+  <div class="zellige-bg" aria-hidden="true"></div>
+  <div id="orb-1" class="orb orb-1" aria-hidden="true"></div>
+  <div id="orb-2" class="orb orb-2" aria-hidden="true"></div>
+  <div id="orb-3" class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast-banner" class="toast-banner" role="status" aria-live="polite"></div>
+
+  <!-- Top Floating Header -->
+  <header class="top-bar">
+    <div class="top-pill">
+      <span class="pulse-dot"></span>
+      <span class="font-medium tracking-wide truncate max-w-[180px] sm:max-w-xs" id="top-section-label">FEG Marrakech · Master ESDD</span>
+    </div>
+    <div class="flex items-center gap-2 pointer-events-auto">
+      <button id="btn-theme" class="top-pill cursor-pointer hover:border-[var(--accent-gold)] transition-colors" title="Changer le thème (T)" aria-label="Changer le thème">
+        <span id="theme-icon" aria-hidden="true">☀️</span>
+        <span class="hidden sm:inline" id="theme-label">Clair</span>
+      </button>
+      <button id="btn-overview" class="top-pill cursor-pointer hover:border-[var(--accent-gold)] transition-colors" title="Vue d'ensemble (G)" aria-label="Vue d'ensemble des diapositives">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span class="hidden sm:inline">Grille</span>
+      </button>
+      <button id="btn-fullscreen" class="top-pill cursor-pointer hover:border-[var(--accent-gold)] transition-colors" title="Plein écran (F)" aria-label="Basculer en plein écran">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Interactive Deck Stage -->
+  <main id="deck-stage" aria-live="polite">
+
+    <!-- ==================== SLIDE 1: COVER ==================== -->
+    <section class="slide is-active" data-slide="1" data-section="Introduction" data-title="Page de titre">
+      <div class="slide-inner">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-6">
+            <div class="reveal delay-1 inline-flex flex-wrap items-center gap-2">
+              <span class="section-tag">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0112 21a12.083 12.083 0 01-6.16-10.422L12 14z"/></svg>
+                FACULTÉ D’ÉCONOMIE ET DE GESTION DE MARRAKECH
+              </span>
+            </div>
+
+            <div class="reveal delay-2 space-y-1.5 text-sm sm:text-base" style="color: var(--text-secondary);">
+              <p class="font-medium tracking-wide">Master : <span style="color: var(--text-primary);">Économie Sociale et Développement Durable</span></p>
+              <p>Parcours : <span style="color: var(--accent-emerald);">Ingénierie de projets de développement durable et territorial</span></p>
+            </div>
+
+            <h1 class="reveal delay-3 font-serif-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+              Les sources de financement des <span class="text-gold-gradient">Associations Marocaines</span>
+            </h1>
+
+            <div class="reveal delay-4 pt-2 flex flex-wrap items-center gap-3">
+              <button id="btn-start-deck" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-semibold text-sm transition-all cursor-pointer shadow-lg hover:scale-[1.03]" style="background: linear-gradient(135deg, #e2b464, #c98a36); color: #091714;">
+                <span>Démarrer la présentation</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </button>
+              <button id="btn-open-plan" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium border transition-all cursor-pointer hover:border-[var(--accent-gold)]" style="border-color: var(--border-subtle); color: var(--text-secondary); background: var(--bg-card);">
+                <span>Voir le plan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Academic Metadata Card -->
+          <div class="lg:col-span-4 reveal delay-5">
+            <div class="glass-card p-6 sm:p-7 space-y-5">
+              <div class="flex items-center justify-between pb-4 border-b" style="border-color: var(--border-subtle);">
+                <span class="text-xs uppercase tracking-widest font-semibold" style="color: var(--accent-gold);">Fiche académique</span>
+                <span class="text-xs px-2.5 py-1 rounded-full font-semibold" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">2026-2027</span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs uppercase tracking-wider" style="color: var(--text-muted);">Présenté par</div>
+                    <div class="text-base font-semibold mt-0.5">Boukiri Latifa</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs uppercase tracking-wider" style="color: var(--text-muted);">Encadré par</div>
+                    <div class="text-base font-semibold mt-0.5">Mansouri Mohamed</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: var(--accent-terra-soft); color: var(--accent-terra);">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div>
+                    <div class="text-xs uppercase tracking-wider" style="color: var(--text-muted);">Année universitaire</div>
+                    <div class="text-base font-semibold mt-0.5">2026-2027</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 2: PLAN ==================== -->
+    <section class="slide is-next" data-slide="2" data-section="Plan" data-title="Plan de la présentation">
+      <div class="slide-inner space-y-8">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Architecture de l’exposé</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Plan de la <span class="text-gold-gradient">présentation</span>
+          </h2>
+          <p class="reveal delay-3 text-sm sm:text-base max-w-xl" style="color: var(--text-secondary);">
+            Cliquez sur un axe pour accéder directement à la section correspondante.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <button type="button" data-jump="3" class="glass-card p-6 text-left group cursor-pointer reveal delay-2">
+            <div class="flex items-start gap-5">
+              <div class="font-serif-display text-4xl font-bold leading-none text-gold-gradient shrink-0">01</div>
+              <div class="space-y-2 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-lg sm:text-xl font-bold group-hover:text-[var(--accent-gold)] transition-colors">Cadre juridique et typologie des ressources</h3>
+                  <svg class="w-5 h-5 shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" style="color: var(--accent-gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </div>
+                <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  Dahir de 1958, loi 75-00 et grandes catégories de financement
+                </p>
+              </div>
+            </div>
+          </button>
+
+          <button type="button" data-jump="5" class="glass-card p-6 text-left group cursor-pointer reveal delay-3">
+            <div class="flex items-start gap-5">
+              <div class="font-serif-display text-4xl font-bold leading-none text-gold-gradient shrink-0">02</div>
+              <div class="space-y-2 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-lg sm:text-xl font-bold group-hover:text-[var(--accent-gold)] transition-colors">Les ressources propres</h3>
+                  <svg class="w-5 h-5 shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" style="color: var(--accent-gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </div>
+                <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  Cotisations, activités génératrices de revenus, contributions en nature
+                </p>
+              </div>
+            </div>
+          </button>
+
+          <button type="button" data-jump="6" class="glass-card p-6 text-left group cursor-pointer reveal delay-4">
+            <div class="flex items-start gap-5">
+              <div class="font-serif-display text-4xl font-bold leading-none text-gold-gradient shrink-0">03</div>
+              <div class="space-y-2 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-lg sm:text-xl font-bold group-hover:text-[var(--accent-gold)] transition-colors">Les financements externes</h3>
+                  <svg class="w-5 h-5 shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" style="color: var(--accent-gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </div>
+                <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  Subventions publiques, dons et legs, financements étrangers
+                </p>
+              </div>
+            </div>
+          </button>
+
+          <button type="button" data-jump="9" class="glass-card p-6 text-left group cursor-pointer reveal delay-5">
+            <div class="flex items-start gap-5">
+              <div class="font-serif-display text-4xl font-bold leading-none text-gold-gradient shrink-0">04</div>
+              <div class="space-y-2 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="text-lg sm:text-xl font-bold group-hover:text-[var(--accent-gold)] transition-colors">Analyse, défis et perspectives</h3>
+                  <svg class="w-5 h-5 shrink-0 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" style="color: var(--accent-gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </div>
+                <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  Comparaison des sources, enjeux et pistes de durabilité
+                </p>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 3: CADRE JURIDIQUE ==================== -->
+    <section class="slide is-next" data-slide="3" data-section="01 · Cadre juridique" data-title="Un cadre juridique en évolution constante">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Axe 1 · Repères législatifs</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Un cadre juridique en <span class="text-gold-gradient">évolution constante</span>
+          </h2>
+        </div>
+
+        <!-- Interactive Timeline Rail -->
+        <div class="reveal delay-3 relative">
+          <div class="hidden lg:block absolute top-11 left-8 right-8 h-0.5 rounded-full" style="background: var(--border-subtle);">
+            <div id="timeline-bar" class="h-full rounded-full transition-all duration-500" style="width: 100%; background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold), var(--accent-terra));"></div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="glass-card p-6 timeline-node is-selected reveal delay-2" data-year="1958" data-step="25">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-serif-display text-3xl font-extrabold text-gold-gradient">1958</span>
+                <span class="w-3 h-3 rounded-full" style="background: var(--accent-emerald); box-shadow: 0 0 12px var(--accent-emerald);"></span>
+              </div>
+              <h3 class="font-semibold text-sm uppercase tracking-wider mb-2" style="color: var(--accent-emerald);">Texte fondateur</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Dahir n° 1-58-376 du 15 novembre 1958 : premier texte régissant le droit d’association
+              </p>
+            </div>
+
+            <div class="glass-card p-6 timeline-node reveal delay-3" data-year="2002" data-step="50">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-serif-display text-3xl font-extrabold text-gold-gradient">2002</span>
+                <span class="w-3 h-3 rounded-full" style="background: var(--accent-gold); box-shadow: 0 0 12px var(--accent-gold);"></span>
+              </div>
+              <h3 class="font-semibold text-sm uppercase tracking-wider mb-2" style="color: var(--accent-gold);">Réforme majeure</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Loi n° 75-00 : modifie et complète le dahir (utilité publique, financement, contrôle)
+              </p>
+            </div>
+
+            <div class="glass-card p-6 timeline-node reveal delay-4" data-year="2011" data-step="75">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-serif-display text-3xl font-extrabold text-gold-gradient">2011</span>
+                <span class="w-3 h-3 rounded-full" style="background: var(--accent-emerald); box-shadow: 0 0 12px var(--accent-emerald);"></span>
+              </div>
+              <h3 class="font-semibold text-sm uppercase tracking-wider mb-2" style="color: var(--accent-emerald);">Consécration</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Constitution : reconnaissance du rôle de la société civile et de la démocratie participative
+              </p>
+            </div>
+
+            <div class="glass-card p-6 timeline-node reveal delay-5" data-year="2026" data-step="100">
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-serif-display text-3xl font-extrabold text-gold-gradient">2026</span>
+                <span class="w-3 h-3 rounded-full" style="background: var(--accent-terra); box-shadow: 0 0 12px var(--accent-terra);"></span>
+              </div>
+              <h3 class="font-semibold text-sm uppercase tracking-wider mb-2" style="color: var(--accent-terra);">Actualité</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Révision annoncée du cadre légal, notamment des financements étrangers (art. 32 bis)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal delay-6 flex items-center gap-3 px-4 py-3 rounded-xl border text-xs sm:text-sm" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-muted);">
+          <svg class="w-4 h-4 shrink-0" style="color: var(--accent-gold);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Base documentaire : « Cadre juridique des associations au Maroc » (Scribd), complété par les textes officiels.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 4: TYPOLOGIE ==================== -->
+    <section class="slide is-next" data-slide="4" data-section="01 · Typologie" data-title="Typologie des sources de financement">
+      <div class="slide-inner space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div class="space-y-2.5">
+            <span class="section-tag reveal delay-1">Axe 1 · Cartographie</span>
+            <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+              Typologie des <span class="text-gold-gradient">sources de financement</span>
+            </h2>
+          </div>
+
+          <div class="reveal delay-3 flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrer par catégorie">
+            <button type="button" class="filter-pill is-active" data-typo-filter="all">Toutes (6)</button>
+            <button type="button" class="filter-pill" data-typo-filter="internes">Internes (3)</button>
+            <button type="button" class="filter-pill" data-typo-filter="externes">Externes (3)</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Column Internes -->
+          <div id="typo-col-internes" class="glass-card p-6 space-y-4 transition-all duration-300 reveal delay-3">
+            <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-subtle);">
+              <div>
+                <h3 class="text-xl font-bold" style="color: var(--accent-emerald);">Ressources internes</h3>
+                <p class="text-xs sm:text-sm mt-0.5" style="color: var(--text-muted);">Générées par l’association elle-même</p>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">Autonomie</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-4 rounded-xl border flex items-start gap-4 transition-all hover:translate-x-1" style="border-color: var(--border-subtle); background: rgba(45, 212, 191, 0.04);">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-base">Cotisations des membres</h4>
+                  <p class="text-sm mt-0.5" style="color: var(--text-secondary);">Ressource statutaire et régulière</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border flex items-start gap-4 transition-all hover:translate-x-1" style="border-color: var(--border-subtle); background: rgba(45, 212, 191, 0.04);">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-base">Activités génératrices de revenus</h4>
+                  <p class="text-sm mt-0.5" style="color: var(--text-secondary);">Prestations, ventes, établissements lucratifs</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border flex items-start gap-4 transition-all hover:translate-x-1" style="border-color: var(--border-subtle); background: rgba(45, 212, 191, 0.04);">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-base">Contributions en nature</h4>
+                  <p class="text-sm mt-0.5" style="color: var(--text-secondary);">Bénévolat, locaux, matériel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column Externes -->
+          <div id="typo-col-externes" class="glass-card p-6 space-y-4 transition-all duration-300 reveal delay-4">
+            <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-subtle);">
+              <div>
+                <h3 class="text-xl font-bold" style="color: var(--accent-gold);">Ressources externes</h3>
+                <p class="text-xs sm:text-sm mt-0.5" style="color: var(--text-muted);">Mobilisées auprès de partenaires</p>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full" style="background: var(--accent-gold-soft); color: var(--accent-gold);">Partenariats</span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-4 rounded-xl border flex items-start gap-4 transition-all hover:translate-x-1" style="border-color: var(--border-subtle); background: rgba(226, 180, 100, 0.04);">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-base">Subventions publiques</h4>
+                  <p class="text-sm mt-0.5" style="color: var(--text-secondary);">État, collectivités territoriales, INDH</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border flex items-start gap-4 transition-all hover:translate-x-1" style="border-color: var(--border-subtle); background: rgba(226, 180, 100, 0.04);">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-base">Dons et legs</h4>
+                  <p class="text-sm mt-0.5" style="color: var(--text-secondary);">Particuliers, entreprises, fondations</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border flex items-start gap-4 transition-all hover:translate-x-1" style="border-color: var(--border-subtle); background: rgba(226, 180, 100, 0.04);">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-base">Financements étrangers</h4>
+                  <p class="text-sm mt-0.5" style="color: var(--text-secondary);">Coopération bilatérale, multilatérale, ONG</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 5: RESSOURCES PROPRES ==================== -->
+    <section class="slide is-next" data-slide="5" data-section="02 · Ressources propres" data-title="Les ressources propres : l’autonomie d’abord">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Axe 2 · Autofinancement</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Les ressources propres : <span class="text-gold-gradient">l’autonomie d’abord</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <article class="glass-card p-6 flex flex-col justify-between space-y-4 reveal delay-2">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold">Cotisations des membres</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Ressource statutaire, régulière et prévisible. Elle matérialise l’engagement des adhérents et garantit l’indépendance.
+              </p>
+            </div>
+            <div class="pt-3 border-t text-xs font-medium uppercase tracking-wider" style="border-color: var(--border-subtle); color: var(--accent-emerald);">
+              Engagement &amp; indépendance
+            </div>
+          </article>
+
+          <article class="glass-card p-6 flex flex-col justify-between space-y-4 reveal delay-3">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <h3 class="text-xl font-bold">Activités génératrices de revenus</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Profits issus d’établissements à caractère lucratif gérés par l’association, mis au service de son objet social.
+              </p>
+            </div>
+            <div class="pt-3 border-t text-xs font-medium uppercase tracking-wider" style="border-color: var(--border-subtle); color: var(--accent-gold);">
+              Modèle économique social
+            </div>
+          </article>
+
+          <article class="glass-card p-6 flex flex-col justify-between space-y-4 reveal delay-4">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-terra-soft); color: var(--accent-terra);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+              </div>
+              <h3 class="text-xl font-bold">Contributions en nature</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Bénévolat, locaux, matériel : un apport réel à valoriser dans les comptes et les dossiers de projet.
+              </p>
+            </div>
+            <div class="pt-3 border-t text-xs font-medium uppercase tracking-wider" style="border-color: var(--border-subtle); color: var(--accent-terra);">
+              Valorisation comptable
+            </div>
+          </article>
+        </div>
+
+        <!-- Tax Regime Callout -->
+        <div class="reveal delay-5 glass-card p-5 border-l-4 flex items-start gap-4" style="border-left-color: var(--accent-gold);">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-primary);">
+            <strong style="color: var(--accent-gold);">Régime fiscal :</strong> cotisations, dons et subventions conformes à l’objet statutaire et sans caractère commercial sont hors champ de la TVA et non soumis à l’IS.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 6: FINANCEMENTS PUBLICS ==================== -->
+    <section class="slide is-next" data-slide="6" data-section="03 · Financements externes" data-title="Les financements publics">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Axe 3 · Appui institutionnel</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Les financements <span class="text-gold-gradient">publics</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <!-- Left: 3 Public Sources -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="glass-card p-5 flex items-start gap-4 reveal delay-2">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">L’État et ses établissements publics</h3>
+                <p class="text-sm mt-1 leading-relaxed" style="color: var(--text-secondary);">
+                  Ministères, agences, établissements publics : appui au fonctionnement et aux projets
+                </p>
+              </div>
+            </div>
+
+            <div class="glass-card p-5 flex items-start gap-4 reveal delay-3">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">Les collectivités territoriales</h3>
+                <p class="text-sm mt-1 leading-relaxed" style="color: var(--text-secondary);">
+                  Communes, provinces, régions : conventions de partenariat pour les projets de proximité
+                </p>
+              </div>
+            </div>
+
+            <div class="glass-card p-5 flex items-start gap-4 reveal delay-4">
+              <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-terra-soft); color: var(--accent-terra);">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold">Programmes nationaux</h3>
+                <p class="text-sm mt-1 leading-relaxed" style="color: var(--text-secondary);">
+                  Initiative nationale pour le développement humain (INDH), lancée en 2005
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Control & Accountability -->
+          <div class="lg:col-span-5 reveal delay-5">
+            <div class="glass-card h-full p-6 sm:p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent-gold);">
+              <div class="space-y-5">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                  </div>
+                  <h3 class="text-xl font-bold">Contrôle et redevabilité</h3>
+                </div>
+
+                <ul class="space-y-4 text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                    <span>Seules les associations régulièrement déclarées peuvent recevoir des subventions publiques</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                    <span>Budget et comptes à fournir aux administrations qui accordent des subventions périodiques (<strong style="color: var(--text-primary);">art. 32</strong>)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                    <span>Contrôle exercé dans le cadre du <strong style="color: var(--text-primary);">Code des juridictions financières</strong></span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-6 pt-4 border-t text-xs flex items-center justify-between" style="border-color: var(--border-subtle); color: var(--text-muted);">
+                <span>Exigence de transparence</span>
+                <span class="font-semibold" style="color: var(--accent-gold);">Art. 32 · Dahir 1958</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 7: DONS, LEGS ET UTILITÉ PUBLIQUE ==================== -->
+    <section class="slide is-next" data-slide="7" data-section="03 · Utilité publique" data-title="Dons, legs et utilité publique">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Axe 3 · Statut privilégié</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Dons, legs et <span class="text-gold-gradient">utilité publique</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Step 1 -->
+          <div class="glass-card p-6 sm:p-7 space-y-5 reveal delay-2">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl flex items-center justify-center font-serif-display text-2xl font-bold" style="background: var(--accent-gold-soft); color: var(--accent-gold);">1</span>
+              <span class="text-xs uppercase tracking-widest font-semibold" style="color: var(--text-muted);">Statut</span>
+            </div>
+            <h3 class="text-2xl font-serif-display font-bold">Reconnaissance</h3>
+            <ul class="space-y-3 text-sm leading-relaxed" style="color: var(--text-secondary);">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                <span>Conférée par décret (art. 9 à 12 du dahir de 1958)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                <span>Critères fixés par circulaire</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                <span>Gage de crédibilité auprès des donateurs</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card p-6 sm:p-7 space-y-5 reveal delay-3">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl flex items-center justify-center font-serif-display text-2xl font-bold" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">2</span>
+              <span class="text-xs uppercase tracking-widest font-semibold" style="color: var(--text-muted);">Incitations</span>
+            </div>
+            <h3 class="text-2xl font-serif-display font-bold">Avantages</h3>
+            <ul class="space-y-3 text-sm leading-relaxed" style="color: var(--text-secondary);">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-emerald);"></span>
+                <span>Capacité de recevoir dons et legs</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-emerald);"></span>
+                <span>Dons déductibles pour les donateurs</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-emerald);"></span>
+                <span>Prestations exonérées de TVA, sans droit à déduction</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card p-6 sm:p-7 space-y-5 reveal delay-4">
+            <div class="flex items-center justify-between">
+              <span class="w-11 h-11 rounded-2xl flex items-center justify-center font-serif-display text-2xl font-bold" style="background: var(--accent-terra-soft); color: var(--accent-terra);">3</span>
+              <span class="text-xs uppercase tracking-widest font-semibold" style="color: var(--text-muted);">Conformité</span>
+            </div>
+            <h3 class="text-2xl font-serif-display font-bold">Obligations</h3>
+            <ul class="space-y-3 text-sm leading-relaxed" style="color: var(--text-secondary);">
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                <span>Rapport annuel certifié par un expert-comptable, adressé au SGG (art. 9)</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                <span>Déclaration des fonds d’origine étrangère</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                <span>Retrait possible en cas de manquement</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 8: FINANCEMENTS ÉTRANGERS ==================== -->
+    <section class="slide is-next" data-slide="8" data-section="03 · Financements étrangers" data-title="Financements étrangers : un cadre strict">
+      <div class="slide-inner space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div class="space-y-2.5">
+            <span class="section-tag reveal delay-1">Axe 3 · Coopération internationale</span>
+            <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+              Financements étrangers : <span class="text-gold-gradient">un cadre strict</span>
+            </h2>
+          </div>
+          <span class="reveal delay-3 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold border self-start sm:self-auto" style="background: var(--bg-card); border-color: var(--border-strong); color: var(--accent-gold);">
+            Période : 2025 – fin mars 2026
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <!-- KPI Grid -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="glass-card p-6 space-y-2 reveal delay-2">
+              <div class="font-serif-display text-4xl sm:text-5xl font-extrabold text-gold-gradient">
+                <span class="kpi-counter" data-target="848.5" data-decimals="1" data-suffix=" M">0</span>
+              </div>
+              <p class="text-sm leading-snug" style="color: var(--text-secondary);">de dirhams de financements étrangers déclarés</p>
+            </div>
+
+            <div class="glass-card p-6 space-y-2 reveal delay-3">
+              <div class="font-serif-display text-4xl sm:text-5xl font-extrabold" style="color: var(--accent-emerald);">
+                <span class="kpi-counter" data-target="401" data-decimals="0" data-suffix="">0</span>
+              </div>
+              <p class="text-sm leading-snug" style="color: var(--text-secondary);">associations bénéficiaires</p>
+            </div>
+
+            <div class="glass-card p-6 space-y-2 reveal delay-4">
+              <div class="font-serif-display text-4xl sm:text-5xl font-extrabold" style="color: var(--text-primary);">
+                <span class="kpi-counter" data-target="1314" data-decimals="0" data-suffix="">0</span>
+              </div>
+              <p class="text-sm leading-snug" style="color: var(--text-secondary);">déclarations déposées</p>
+            </div>
+
+            <div class="glass-card p-6 space-y-2 reveal delay-5">
+              <div class="font-serif-display text-4xl sm:text-5xl font-extrabold" style="color: var(--accent-terra);">
+                <span class="kpi-counter" data-target="3719" data-decimals="0" data-suffix="">0</span>
+              </div>
+              <p class="text-sm leading-snug" style="color: var(--text-secondary);">aides recensées</p>
+            </div>
+          </div>
+
+          <!-- Regulatory Box -->
+          <div class="lg:col-span-5 reveal delay-4">
+            <div class="glass-card h-full p-6 flex flex-col justify-between space-y-5 border-t-4" style="border-top-color: var(--accent-terra);">
+              <div class="space-y-4">
+                <h3 class="text-xl font-bold">Un encadrement à renforcer</h3>
+                <ul class="space-y-3.5 text-sm leading-relaxed" style="color: var(--text-secondary);">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                    <span>Déclaration au SGG dans un délai de <strong style="color: var(--text-primary);">30 jours</strong> (art. 32 bis)</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                    <span>Dispositif reposant encore sur le dahir de 1958</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                    <span>Révision globale annoncée, selon une approche participative</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                    <span><strong style="color: var(--text-primary);">Enjeu :</strong> concilier transparence et accès aux ressources de coopération</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal delay-6 text-xs sm:text-sm px-4 py-2.5 rounded-xl border" style="background: var(--bg-card); border-color: var(--border-subtle); color: var(--text-muted);">
+          Source : Hespress FR, 21 avril 2026 (données présentées par le gouvernement à la Chambre des représentants).
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 9: SYNTHÈSE COMPARATIVE ==================== -->
+    <section class="slide is-next" data-slide="9" data-section="04 · Analyse comparative" data-title="Synthèse comparative des sources">
+      <div class="slide-inner space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div class="space-y-2.5">
+            <span class="section-tag reveal delay-1">Axe 4 · Matrice d’évaluation</span>
+            <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+              Synthèse <span class="text-gold-gradient">comparative des sources</span>
+            </h2>
+          </div>
+
+          <div class="reveal delay-3 flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrer le tableau comparatif">
+            <button type="button" class="filter-pill is-active" data-table-filter="all">Toutes</button>
+            <button type="button" class="filter-pill" data-table-filter="interne">Internes</button>
+            <button type="button" class="filter-pill" data-table-filter="externe">Externes</button>
+          </div>
+        </div>
+
+        <div class="reveal delay-3 overflow-x-auto">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Atouts</th>
+                <th>Limites</th>
+              </tr>
+            </thead>
+            <tbody id="comp-table-body">
+              <tr data-cat="interne">
+                <td class="font-semibold text-sm sm:text-base whitespace-nowrap">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: var(--accent-emerald);"></span>
+                    <span>Cotisations</span>
+                  </div>
+                </td>
+                <td class="text-sm sm:text-base" style="color: var(--accent-emerald);">Régularité, indépendance</td>
+                <td class="text-sm sm:text-base" style="color: var(--text-secondary);">Montants souvent modestes</td>
+              </tr>
+              <tr data-cat="interne">
+                <td class="font-semibold text-sm sm:text-base whitespace-nowrap">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: var(--accent-emerald);"></span>
+                    <span>Activités lucratives</span>
+                  </div>
+                </td>
+                <td class="text-sm sm:text-base" style="color: var(--accent-emerald);">Autonomie, pérennité</td>
+                <td class="text-sm sm:text-base" style="color: var(--text-secondary);">Compétences de gestion, fiscalité</td>
+              </tr>
+              <tr data-cat="externe">
+                <td class="font-semibold text-sm sm:text-base whitespace-nowrap">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                    <span>Subventions publiques</span>
+                  </div>
+                </td>
+                <td class="text-sm sm:text-base" style="color: var(--accent-emerald);">Volumes, légitimité institutionnelle</td>
+                <td class="text-sm sm:text-base" style="color: var(--text-secondary);">Dépendance, lourdeur, contrôle</td>
+              </tr>
+              <tr data-cat="externe">
+                <td class="font-semibold text-sm sm:text-base whitespace-nowrap">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: var(--accent-gold);"></span>
+                    <span>Dons et legs</span>
+                  </div>
+                </td>
+                <td class="text-sm sm:text-base" style="color: var(--accent-emerald);">Avantage fiscal pour les donateurs</td>
+                <td class="text-sm sm:text-base" style="color: var(--text-secondary);">Statut d’utilité publique exigeant</td>
+              </tr>
+              <tr data-cat="externe">
+                <td class="font-semibold text-sm sm:text-base whitespace-nowrap">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: var(--accent-terra);"></span>
+                    <span>Financements étrangers</span>
+                  </div>
+                </td>
+                <td class="text-sm sm:text-base" style="color: var(--accent-emerald);">Montants élevés, expertise</td>
+                <td class="text-sm sm:text-base" style="color: var(--text-secondary);">Déclaration, délais, sensibilité</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 10: DÉFIS ET ENJEUX ==================== -->
+    <section class="slide is-next" data-slide="10" data-section="04 · Défis" data-title="Défis et enjeux du financement associatif">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Axe 4 · Diagnostic</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Défis et enjeux du <span class="text-gold-gradient">financement associatif</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-2">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-terra-soft); color: var(--accent-terra);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="text-lg font-bold">Dépendance aux fonds publics</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Financements ponctuels et projet par projet, qui fragilisent la continuité des actions.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-3">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="text-lg font-bold">Transparence et redevabilité</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Exigences croissantes de comptes certifiés, de déclaration et de suivi des fonds.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-4">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="text-lg font-bold">Inégalités d’accès</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Les petites associations locales disposent de moins d’expertise pour mobiliser des ressources.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style="background: var(--accent-terra-soft); color: var(--accent-terra);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/></svg>
+            </div>
+            <div class="space-y-1.5">
+              <h3 class="text-lg font-bold">Instabilité du cadre légal</h3>
+              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                Révision annoncée des textes : un besoin de visibilité pour les porteurs de projets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 11: PISTES DURABLES ==================== -->
+    <section class="slide is-next" data-slide="11" data-section="04 · Perspectives" data-title="Pistes pour un financement durable">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Axe 4 · Leviers stratégiques</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Pistes pour un <span class="text-gold-gradient">financement durable</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="glass-card p-6 space-y-4 reveal delay-2">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            </div>
+            <h3 class="text-xl font-bold">Diversifier</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+              Combiner ressources propres, fonds publics, dons et partenariats pour réduire les risques.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 space-y-4 reveal delay-3">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-gold-soft); color: var(--accent-gold);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3 class="text-xl font-bold">Ancrer dans le territoire</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+              Nouer des conventions avec communes et régions autour de projets de développement local.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 space-y-4 reveal delay-4">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-terra-soft); color: var(--accent-terra);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="text-xl font-bold">Professionnaliser</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+              Renforcer la gestion de projet, la comptabilité et le reporting auprès des bailleurs.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 space-y-4 reveal delay-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold">Innover par l’ESS</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+              Développer des activités économiques à finalité sociale pour gagner en autonomie.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 12: SOURCES DOCUMENTAIRES ==================== -->
+    <section class="slide is-next" data-slide="12" data-section="Références" data-title="Sources documentaires">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Bibliographie &amp; textes</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            Sources <span class="text-gold-gradient">documentaires</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-2">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-serif-display font-bold" style="background: var(--accent-gold-soft); color: var(--accent-gold);">01</div>
+            <div class="space-y-1">
+              <div class="text-xs uppercase tracking-wider font-semibold" style="color: var(--accent-gold);">Document de référence</div>
+              <p class="text-sm sm:text-base font-medium leading-relaxed">
+                « Cadre juridique des associations au Maroc », Scribd (document de référence)
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-serif-display font-bold" style="background: var(--accent-emerald-soft); color: var(--accent-emerald);">02</div>
+            <div class="space-y-1">
+              <div class="text-xs uppercase tracking-wider font-semibold" style="color: var(--accent-emerald);">Texte législatif</div>
+              <p class="text-sm sm:text-base font-medium leading-relaxed">
+                Dahir n° 1-58-376 du 15 novembre 1958 relatif au droit d’association, modifié et complété par la loi n° 75-00 (2002)
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-serif-display font-bold" style="background: var(--accent-terra-soft); color: var(--accent-terra);">03</div>
+            <div class="space-y-1">
+              <div class="text-xs uppercase tracking-wider font-semibold" style="color: var(--accent-terra);">Presse &amp; données officielles</div>
+              <p class="text-sm sm:text-base font-medium leading-relaxed">
+                Hespress FR, « Financements étrangers des associations : plus de 848 millions de dirhams déclarés », 21 avril 2026
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 flex items-start gap-4 reveal delay-5">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-serif-display font-bold" style="background: var(--accent-gold-soft); color: var(--accent-gold);">04</div>
+            <div class="space-y-1">
+              <div class="text-xs uppercase tracking-wider font-semibold" style="color: var(--accent-gold);">Analyse fiscale</div>
+              <p class="text-sm sm:text-base font-medium leading-relaxed">
+                Upsilon Consulting, « Associations : quel régime fiscal en matière d’IS », 2021
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 13: CONCLUSION ==================== -->
+    <section class="slide is-next" data-slide="13" data-section="Conclusion" data-title="Conclusion & Merci">
+      <div class="slide-inner space-y-7">
+        <div class="space-y-3">
+          <span class="section-tag reveal delay-1">Synthèse finale</span>
+          <h2 class="reveal delay-2 font-serif-display text-3xl sm:text-5xl font-bold">
+            <span class="text-gold-gradient">Conclusion</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="glass-card p-6 space-y-3 reveal delay-2">
+            <div class="font-serif-display text-4xl font-extrabold text-gold-gradient">1</div>
+            <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-primary);">
+              Un financement hybride : ressources propres, fonds publics, dons et financements étrangers se complètent.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 space-y-3 reveal delay-3">
+            <div class="font-serif-display text-4xl font-extrabold" style="color: var(--accent-emerald);">2</div>
+            <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-primary);">
+              Un cadre juridique protecteur mais en mutation, où transparence et redevabilité sont centrales.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 space-y-3 reveal delay-4">
+            <div class="font-serif-display text-4xl font-extrabold" style="color: var(--accent-terra);">3</div>
+            <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-primary);">
+              La durabilité passe par la diversification, l’ancrage territorial et la professionnalisation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Closing Banner -->
+        <div class="reveal delay-5 glass-card p-7 sm:p-9 text-center space-y-3 border-t-2" style="border-top-color: var(--accent-gold);">
+          <h3 class="font-serif-display text-3xl sm:text-4xl font-bold text-gold-gradient">
+            Merci pour votre attention
+          </h3>
+          <p class="text-base sm:text-lg" style="color: var(--text-secondary);">
+            Questions et discussion
+          </p>
+          <div class="pt-3 flex items-center justify-center gap-3 flex-wrap">
+            <button type="button" id="btn-replay" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold cursor-pointer transition-all hover:scale-[1.03]" style="background: var(--accent-gold-soft); color: var(--accent-gold); border: 1px solid var(--border-strong);">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <span>Revenir au début</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Floating Control Dock -->
+  <nav class="bottom-dock" aria-label="Navigation des diapositives">
+    <button type="button" id="btn-prev" class="dock-btn" title="Diapositive précédente (←)" aria-label="Diapositive précédente">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+
+    <button type="button" id="btn-slide-counter" class="dock-btn px-3 font-mono text-xs sm:text-sm" title="Ouvrir la grille des diapositives (G)">
+      <span id="current-num" class="font-bold" style="color: var(--accent-gold);">01</span>
+      <span style="color: var(--text-muted);">/</span>
+      <span id="total-num" style="color: var(--text-secondary);">13</span>
+    </button>
+
+    <button type="button" id="btn-next" class="dock-btn" title="Diapositive suivante (→ ou Espace)" aria-label="Diapositive suivante">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <span class="w-px h-5 mx-0.5" style="background: var(--border-subtle);" aria-hidden="true"></span>
+
+    <button type="button" id="btn-autoplay" class="dock-btn" title="Lecture automatique (P)" aria-label="Lecture automatique">
+      <svg id="icon-play" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="icon-pause" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+    </button>
+  </nav>
+
+  <!-- Slide Overview Grid Modal -->
+  <div id="overview-modal" class="overview-modal" role="dialog" aria-modal="true" aria-label="Vue d'ensemble des diapositives">
+    <div class="max-w-5xl mx-auto space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="font-serif-display text-2xl sm:text-3xl font-bold">Vue d’ensemble</h2>
+          <p class="text-xs sm:text-sm mt-0.5" style="color: var(--text-muted);">13 diapositives · Cliquez pour naviguer directement</p>
+        </div>
+        <button type="button" id="btn-close-overview" class="dock-btn border" style="border-color: var(--border-strong);" aria-label="Fermer la vue d'ensemble">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="overview-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let autoPlayTimer = null;
+      let toastTimer = null;
+
+      const progressFill = document.getElementById('progress-fill');
+      const currentNumEl = document.getElementById('current-num');
+      const totalNumEl = document.getElementById('total-num');
+      const topSectionLabel = document.getElementById('top-section-label');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnOverview = document.getElementById('btn-overview');
+      const btnSlideCounter = document.getElementById('btn-slide-counter');
+      const btnCloseOverview = document.getElementById('btn-close-overview');
+      const overviewModal = document.getElementById('overview-modal');
+      const overviewGrid = document.getElementById('overview-grid');
+      const btnTheme = document.getElementById('btn-theme');
+      const themeIcon = document.getElementById('theme-icon');
+      const themeLabel = document.getElementById('theme-label');
+      const btnFullscreen = document.getElementById('btn-fullscreen');
+      const btnAutoplay = document.getElementById('btn-autoplay');
+      const iconPlay = document.getElementById('icon-play');
+      const iconPause = document.getElementById('icon-pause');
+      const toastBanner = document.getElementById('toast-banner');
+      const orb1 = document.getElementById('orb-1');
+      const orb2 = document.getElementById('orb-2');
+      const orb3 = document.getElementById('orb-3');
+
+      totalNumEl.textContent = String(totalSlides).padStart(2, '0');
+
+      function showToast(message) {
+        toastBanner.textContent = message;
+        toastBanner.classList.add('is-visible');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastBanner.classList.remove('is-visible');
+        }, 2200);
+      }
+
+      function animateCounters(slideEl) {
+        const counters = slideEl.querySelectorAll('.kpi-counter');
+        counters.forEach((el) => {
+          const target = parseFloat(el.dataset.target || '0');
+          const decimals = parseInt(el.dataset.decimals || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1100;
+          const start = performance.now();
+
+          function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = target * eased;
+
+            let formatted;
+            if (decimals > 0) {
+              formatted = value.toFixed(decimals).replace('.', ',');
+            } else {
+              formatted = Math.round(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            }
+            el.textContent = formatted + suffix;
+
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            }
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      function updateOrbs(index) {
+        const ratio = index / Math.max(totalSlides - 1, 1);
+        orb1.style.transform = `translate3d(${-ratio * 60}px, ${ratio * 45}px, 0)`;
+        orb2.style.transform = `translate3d(${ratio * 70}px, ${-ratio * 35}px, 0)`;
+        orb3.style.transform = `translate3d(${Math.sin(ratio * Math.PI) * 50}px, ${-ratio * 30}px, 0)`;
+      }
+
+      function goToSlide(index) {
+        const clamped = Math.max(0, Math.min(totalSlides - 1, index));
+        currentIndex = clamped;
+
+        slides.forEach((slide, i) => {
+          slide.classList.remove('is-active', 'is-prev', 'is-next');
+          if (i === currentIndex) {
+            slide.classList.add('is-active');
+            slide.scrollTop = 0;
+          } else if (i < currentIndex) {
+            slide.classList.add('is-prev');
+          } else {
+            slide.classList.add('is-next');
+          }
+        });
+
+        const activeSlide = slides[currentIndex];
+        const progress = ((currentIndex + 1) / totalSlides) * 100;
+        progressFill.style.width = `${progress}%`;
+        currentNumEl.textContent = String(currentIndex + 1).padStart(2, '0');
+        topSectionLabel.textContent = activeSlide.dataset.section || 'FEG Marrakech';
+
+        btnPrev.disabled = currentIndex === 0;
+        btnNext.disabled = currentIndex === totalSlides - 1;
+
+        updateOrbs(currentIndex);
+
+        if (activeSlide.querySelector('.kpi-counter')) {
+          animateCounters(activeSlide);
+        }
+
+        highlightOverviewTile();
+      }
+
+      function nextSlide() {
+        if (currentIndex < totalSlides - 1) {
+          goToSlide(currentIndex + 1);
+        } else if (autoPlayTimer) {
+          stopAutoPlay();
+          showToast('Fin de la présentation');
+        }
+      }
+
+      function prevSlide() {
+        if (currentIndex > 0) {
+          goToSlide(currentIndex - 1);
+        }
+      }
+
+      function startAutoPlay() {
+        if (autoPlayTimer) clearInterval(autoPlayTimer);
+        btnAutoplay.classList.add('is-active');
+        iconPlay.classList.add('hidden');
+        iconPause.classList.remove('hidden');
+        showToast('Lecture automatique activée (7s / diapo)');
+        autoPlayTimer = setInterval(() => {
+          if (currentIndex < totalSlides - 1) {
+            goToSlide(currentIndex + 1);
+          } else {
+            stopAutoPlay();
+            showToast('Présentation terminée');
+          }
+        }, 7000);
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayTimer) {
+          clearInterval(autoPlayTimer);
+          autoPlayTimer = null;
+        }
+        btnAutoplay.classList.remove('is-active');
+        iconPlay.classList.remove('hidden');
+        iconPause.classList.add('hidden');
+      }
+
+      function toggleAutoPlay() {
+        if (autoPlayTimer) {
+          stopAutoPlay();
+          showToast('Lecture automatique en pause');
+        } else {
+          if (currentIndex === totalSlides - 1) goToSlide(0);
+          startAutoPlay();
+        }
+      }
+
+      function buildOverviewGrid() {
+        overviewGrid.innerHTML = '';
+        slides.forEach((slide, i) => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.className = 'glass-card p-4 text-left cursor-pointer space-y-2 transition-all';
+          card.dataset.overviewIndex = String(i);
+          card.innerHTML = `
+            <div class="flex items-center justify-between">
+              <span class="font-serif-display text-lg font-bold text-gold-gradient">${String(i + 1).padStart(2, '0')}</span>
+              <span class="text-[11px] uppercase tracking-wider truncate max-w-[140px]" style="color: var(--text-muted);">${slide.dataset.section || ''}</span>
+            </div>
+            <div class="text-sm font-semibold leading-snug" style="color: var(--text-primary);">${slide.dataset.title || ''}</div>
+          `;
+          card.addEventListener('click', () => {
+            goToSlide(i);
+            closeOverview();
+          });
+          overviewGrid.appendChild(card);
+        });
+        highlightOverviewTile();
+      }
+
+      function highlightOverviewTile() {
+        const tiles = overviewGrid.querySelectorAll('[data-overview-index]');
+        tiles.forEach((tile) => {
+          const idx = parseInt(tile.dataset.overviewIndex || '-1', 10);
+          if (idx === currentIndex) {
+            tile.style.borderColor = 'var(--accent-gold)';
+            tile.style.boxShadow = '0 0 0 1px var(--accent-gold)';
+          } else {
+            tile.style.borderColor = '';
+            tile.style.boxShadow = '';
+          }
+        });
+      }
+
+      function openOverview() {
+        overviewModal.classList.add('is-open');
+        highlightOverviewTile();
+      }
+
+      function closeOverview() {
+        overviewModal.classList.remove('is-open');
+      }
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'light') {
+          themeIcon.textContent = '🌙';
+          themeLabel.textContent = 'Nuit';
+        } else {
+          themeIcon.textContent = '☀️';
+          themeLabel.textContent = 'Clair';
+        }
+        try {
+          localStorage.setItem('feg_deck_theme', theme);
+        } catch (e) {
+          // Ignored in sandboxed iframes
+        }
+      }
+
+      function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        showToast(next === 'light' ? 'Mode Jour (Sable de Marrakech)' : 'Mode Nuit (Émeraude & Or)');
+      }
+
+      function toggleFullscreen() {
+        try {
+          if (!document.fullscreenElement) {
+            if (document.documentElement.requestFullscreen) {
+              document.documentElement.requestFullscreen().catch(() => {
+                showToast('Plein écran indisponible dans cette fenêtre');
+              });
+            }
+          } else if (document.exitFullscreen) {
+            document.exitFullscreen().catch(() => {});
+          }
+        } catch (e) {
+          showToast('Plein écran indisponible');
+        }
+      }
+
+      // Wire Navigation Controls
+      btnPrev.addEventListener('click', prevSlide);
+      btnNext.addEventListener('click', nextSlide);
+      btnOverview.addEventListener('click', openOverview);
+      btnSlideCounter.addEventListener('click', openOverview);
+      btnCloseOverview.addEventListener('click', closeOverview);
+      btnTheme.addEventListener('click', toggleTheme);
+      btnFullscreen.addEventListener('click', toggleFullscreen);
+      btnAutoplay.addEventListener('click', toggleAutoPlay);
+
+      overviewModal.addEventListener('click', (e) => {
+        if (e.target === overviewModal) closeOverview();
+      });
+
+      const btnStartDeck = document.getElementById('btn-start-deck');
+      const btnOpenPlan = document.getElementById('btn-open-plan');
+      const btnReplay = document.getElementById('btn-replay');
+
+      if (btnStartDeck) btnStartDeck.addEventListener('click', () => goToSlide(1));
+      if (btnOpenPlan) btnOpenPlan.addEventListener('click', () => goToSlide(1));
+      if (btnReplay) btnReplay.addEventListener('click', () => goToSlide(0));
+
+      // Plan jump buttons
+      document.querySelectorAll('[data-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetSlide = parseInt(btn.dataset.jump || '1', 10) - 1;
+          goToSlide(targetSlide);
+        });
+      });
+
+      // Slide 3: Interactive Timeline
+      const timelineNodes = document.querySelectorAll('.timeline-node');
+      const timelineBar = document.getElementById('timeline-bar');
+      timelineNodes.forEach((node) => {
+        node.addEventListener('click', () => {
+          timelineNodes.forEach((n) => n.classList.remove('is-selected'));
+          node.classList.add('is-selected');
+          if (timelineBar) {
+            timelineBar.style.width = `${node.dataset.step || 100}%`;
+          }
+        });
+      });
+
+      // Slide 4: Typology Filter
+      const typoButtons = document.querySelectorAll('[data-typo-filter]');
+      const colInternes = document.getElementById('typo-col-internes');
+      const colExternes = document.getElementById('typo-col-externes');
+      typoButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          typoButtons.forEach((b) => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const mode = btn.dataset.typoFilter;
+          if (mode === 'all') {
+            colInternes.style.opacity = '1';
+            colInternes.style.transform = 'scale(1)';
+            colExternes.style.opacity = '1';
+            colExternes.style.transform = 'scale(1)';
+          } else if (mode === 'internes') {
+            colInternes.style.opacity = '1';
+            colInternes.style.transform = 'scale(1.015)';
+            colExternes.style.opacity = '0.32';
+            colExternes.style.transform = 'scale(0.98)';
+          } else {
+            colInternes.style.opacity = '0.32';
+            colInternes.style.transform = 'scale(0.98)';
+            colExternes.style.opacity = '1';
+            colExternes.style.transform = 'scale(1.015)';
+          }
+        });
+      });
+
+      // Slide 9: Comparison Table Filter
+      const tableButtons = document.querySelectorAll('[data-table-filter]');
+      const tableRows = document.querySelectorAll('#comp-table-body tr');
+      tableButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          tableButtons.forEach((b) => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          const filter = btn.dataset.tableFilter;
+          tableRows.forEach((row) => {
+            if (filter === 'all' || row.dataset.cat === filter) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Mouse spotlight effect on glass cards
+      document.addEventListener('mousemove', (e) => {
+        const card = e.target.closest('.glass-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (overviewModal.classList.contains('is-open')) {
+          if (e.key === 'Escape' || e.key.toLowerCase() === 'g') {
+            closeOverview();
+          }
+          return;
+        }
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          goToSlide(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          goToSlide(totalSlides - 1);
+        } else if (e.key.toLowerCase() === 'g') {
+          openOverview();
+        } else if (e.key.toLowerCase() === 't') {
+          toggleTheme();
+        } else if (e.key.toLowerCase() === 'f') {
+          toggleFullscreen();
+        } else if (e.key.toLowerCase() === 'p') {
+          toggleAutoPlay();
+        }
+      });
+
+      // Touch Swipe Navigation
+      let touchStartX = 0;
+      let touchStartY = 0;
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          if (dx < 0) nextSlide();
+          else prevSlide();
+        }
+      }, { passive: true });
+
+      // Initialize saved theme if available
+      try {
+        const savedTheme = localStorage.getItem('feg_deck_theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          applyTheme(savedTheme);
+        }
+      } catch (e) {
+        // Ignored
+      }
+
+      buildOverviewGrid();
+      goToSlide(0);
+    })();
+  </script>
+</body>
+</html>
